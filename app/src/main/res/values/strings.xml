@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">RootPine</string>
     <string name="github_link">GitHub Profile</string>
+    <string name="github_profile">Anshuman (@ansxuman)</string>
+    <string name="play_store_link">https://play.google.com/store/apps/details?id=com.ansxuman.rootpine</string>
 </resources>

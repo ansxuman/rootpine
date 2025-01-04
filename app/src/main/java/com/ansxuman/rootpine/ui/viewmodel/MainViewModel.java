@@ -26,6 +26,7 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public void performChecks() {
+        checkResults.setValue(null);
         isLoading.setValue(true);
         executor.execute(() -> {
             List<RootCheckResult> results = repository.performAllChecks();

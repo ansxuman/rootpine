@@ -1,8 +1,10 @@
 package com.ansxuman.rootpine.ui.adapter;
 
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ansxuman.rootpine.R;
 import com.ansxuman.rootpine.data.model.RootCheckResult;
+import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,13 @@ public class CheckResultAdapter extends RecyclerView.Adapter<CheckResultAdapter.
         RootCheckResult result = results.get(position);
         holder.titleText.setText(result.getCheckType().getTitle());
         holder.detailsText.setText(result.getDetails());
-        holder.statusText.setText(result.isDetected() ? "Detected" : "Not Detected");
+        
+        // Set status icon
+        holder.statusIcon.setImageResource(
+            result.isDetected() ? 
+            R.drawable.ic_status_detected : 
+            R.drawable.ic_status_safe
+        );
     }
 
     @Override
@@ -46,13 +55,13 @@ public class CheckResultAdapter extends RecyclerView.Adapter<CheckResultAdapter.
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleText;
         TextView detailsText;
-        TextView statusText;
+        ImageView statusIcon;
 
         ViewHolder(View view) {
             super(view);
             titleText = view.findViewById(R.id.text_title);
             detailsText = view.findViewById(R.id.text_details);
-            statusText = view.findViewById(R.id.text_status);
+            statusIcon = view.findViewById(R.id.status_icon);
         }
     }
 }

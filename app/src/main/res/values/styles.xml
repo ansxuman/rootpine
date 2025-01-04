@@ -1,0 +1,13 @@
+<resources>
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/dialog_background</item>
+        <item name="colorOnSurface">@color/dialog_text</item>
+        <item name="colorPrimary">@color/dialog_link</item>
+        <item name="colorOnPrimaryContainer">@color/dialog_text</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/dialog_text</item>
+    </style>
+</resources> 
