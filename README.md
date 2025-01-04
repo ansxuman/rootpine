@@ -30,7 +30,7 @@ Contributions are what make the open-source community an incredible space for le
 
 ## **Donations**
 
-If you find Clave helpful, consider supporting its development and future updates. Every contribution helps!  
+If you find RootPine helpful, consider supporting its development and future updates. Every contribution helps!  
 
 <a href="https://buymeacoffee.com/ansxuman" target="_blank">
 <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
