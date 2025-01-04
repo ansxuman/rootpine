@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 binding.checkRootButton.setText("      Checking...");
                 binding.checkRootButton.setIcon(null);
                 binding.progressIndicator.setVisibility(View.VISIBLE);
-                binding.recyclerResults.setVisibility(View.GONE);
             } else {
                 binding.checkRootButton.setText("Check Root Status");
                 binding.progressIndicator.setVisibility(View.GONE);
@@ -80,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewModel.getCheckResults().observe(this, results -> {
-            if (results != null) {
+            if (results != null && !results.isEmpty()) {
+                binding.emptyState.setVisibility(View.GONE);
                 binding.recyclerResults.setVisibility(View.VISIBLE);
                 adapter.setResults(results);
             }

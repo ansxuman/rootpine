@@ -2,11 +2,15 @@ package com.ansxuman.rootpine.domain.util;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.util.Log;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
 public class RootUtil {
+    private static final String TAG = "RootUtil";
+
     private static final List<String> ROOT_PACKAGES = Arrays.asList(
         "com.topjohnwu.magisk",
         "com.noshufou.android.su",
@@ -29,8 +33,63 @@ public class RootUtil {
         "com.xmodgame",
         "com.cih.game_cih",
         "com.charles.lpoqasert",
-        "catch_.me_.if_.you_.can_"
+        "catch_.me_.if_.you_.can_",
+        "ru.aaaaacar.installer",
+        "com.ansxuman.wipos"
     );
+
+    private boolean getPackageInfoCompat(PackageManager packageManager, String packageName) {
+        if (packageName == null || packageName.isEmpty() || packageManager == null) {
+            return false;
+        }
+        
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                packageManager.getPackageInfo(packageName, 
+                    PackageManager.PackageInfoFlags.of(PackageManager.GET_PERMISSIONS | 
+                                                     PackageManager.MATCH_UNINSTALLED_PACKAGES));
+            } else {
+                packageManager.getPackageInfo(packageName, 
+                    PackageManager.GET_PERMISSIONS | 
+                    PackageManager.MATCH_UNINSTALLED_PACKAGES);
+            }
+            Log.d(TAG, "Found package: " + packageName);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.d(TAG, "Package not found: " + packageName);
+            return false;
+        } catch (SecurityException e) {
+            Log.d(TAG, "Security exception while checking package: " + packageName);
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "Error checking package: " + packageName, e);
+            return false;
+        }
+    }
+
+    public boolean checkRootManagementApps(PackageManager packageManager) {
+        if (packageManager == null) return false;
+        
+        for (String packageName : ROOT_PACKAGES) {
+            if (getPackageInfoCompat(packageManager, packageName)) {
+                Log.d(TAG, "Found root management app: " + packageName);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkDangerousApps(PackageManager packageManager) {
+        if (packageManager == null) return false;
+
+        for (String packageName : DANGEROUS_APPS) {
+            if (getPackageInfoCompat(packageManager, packageName)) {
+                Log.d(TAG, "Found dangerous app: " + packageName);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean checkSuBinary() {
         String[] paths = {
@@ -74,30 +133,6 @@ public class RootUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean checkRootManagementApps(PackageManager packageManager) {
-        for (String packageName : ROOT_PACKAGES) {
-            try {
-                packageManager.getPackageInfo(packageName, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException e) {
-                // Package not found, continue checking
-            }
-        }
-        return false;
-    }
-
-    public boolean checkDangerousApps(PackageManager packageManager) {
-        for (String packageName : DANGEROUS_APPS) {
-            try {
-                packageManager.getPackageInfo(packageName, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException e) {
-                // Package not found, continue checking
-            }
         }
         return false;
     }
