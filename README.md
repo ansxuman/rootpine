@@ -4,7 +4,7 @@ RootPine is a fast, lightweight, and modern root detection tool that thoroughly 
 
 ## 🎯 Why RootPine?
 
-I created RootPine because existing tools weren’t keeping up. Even when they passed all checks, banking apps could still detect root access.RootPine tackles this issue by adding additonal checks and methods on top of existing methods to detect root.
+I created RootPine because existing tools weren’t keeping up. Even when they passed all checks, banking apps could still detect root access.RootPine tackles this issue by adding additonal checks and methods along with existing methods to detect root.
 
 ## 📱 Features  
 
