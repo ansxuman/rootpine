@@ -2,11 +2,17 @@
  <img src="https://github.com/ansxuman/rootpine/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png" alt="Clave Logo" width="120" />
   <h1>RootPine</h1>
   <p>RootPine is a fast, lightweight, and modern root detection tool that thoroughly evaluates all known methods apps use to detect and block access on rooted devices.</p>
+ 
+ <img src="https://github.com/ansxuman/rootpine/blob/main/assets/1.jpg" alt="Screenshot 1" width="400">
+<img src="https://github.com/ansxuman/rootpine/blob/main/assets/2.jpg" alt="Screenshot 2" width="400">
+
 </div>
 
 ## 🎯 Why RootPine?
 
 I created RootPine because existing tools weren’t keeping up. Even when they passed all checks, banking apps could still detect root access.RootPine tackles this issue by adding additonal checks and methods along with existing methods to detect root.
+
+
 
 ## 📱 Features  
 
