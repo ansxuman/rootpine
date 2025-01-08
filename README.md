@@ -12,8 +12,6 @@
 
 I created RootPine because existing tools weren’t keeping up. Even when they passed all checks, banking apps could still detect root access.RootPine tackles this issue by adding additonal checks and methods along with existing methods to detect root.
 
-
-
 ## 📱 Features  
 
 - **Up-to-date root detection methods**  
@@ -26,9 +24,13 @@ I created RootPine because existing tools weren’t keeping up. Even when they p
 
 ## 📥 Download
 
-<a href='https://play.google.com/store/apps/details?id=com.ansxuman.rootpine'>
-  <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/>
-</a>
+Unfortunately, the app is currently in **Closed Testing** due to Google's restrictions for personal accounts. To qualify for production release on the Play Store, the app must undergo testing by **12 users for 14 days**. 
+
+In the meantime, you can download the app directly from the GitHub releases page:  
+👉 [Download on GitHub](https://github.com/ansxuman/rootpine/releases)
+
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.ansxuman.rootpine)
+
 
 ## Contributing
 
